@@ -10,7 +10,7 @@ router.get('/', async (req, res) =>
         const libro = await Libro.find()
         res.json(libro)
     }
-    catch (err)
+    catch (error)
     {
         res.status(500).json({ error: 'No se pudieron obtener los libros'})
     }
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) =>
         const libro = await Libro.findById(req.params.id)
         res.json(libro)
     }
-    catch (err)
+    catch (error)
     {
         res.status(500).json({ error: `No se pudo obtener el libro ${req.params.id}`})
     }
@@ -37,7 +37,7 @@ router.post('/', async (req, res) =>
         await nuevolibro.save()
         res.json(nuevolibro)
     }
-    catch (err)
+    catch (error)
     {
         res.status(500).json({ error: 'No se pudo crear el libro'})
     }
@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) =>
             })
         res.json(libro)
     }
-    catch (err)
+    catch (error)
     {
         res.status(500).json({ error: 'No se pudo actualizar el libro'})
     }
@@ -66,7 +66,7 @@ router.delete('/:id', async (req, res) =>
         const libro = await Libro.findByIdAndDelete(req.params.id)
         res.json(libro)
     }
-    catch (err)
+    catch (error)
     {
         res.status(500).json({ error: 'No se pudo eliminar el libro'})
     }
